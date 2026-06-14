@@ -1,0 +1,436 @@
+{
+  "dinosaurs": [
+    {
+      "id": "trex",
+      "common_name": "Tyrannosaurus rex",
+      "scientific_name": "Tyrannosaurus rex",
+      "period": "Late Cretaceous",
+      "period_years": "68-66 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 12.3,
+      "weight_kg": 9000,
+      "key_facts": [
+        "Largest land carnivore of its time",
+        "Bite force of 12,800 newtons",
+        "Fossils found in Hell Creek Formation (Montana, Wyoming)",
+        "Walked on two powerful hind legs with small arms",
+        "Had excellent vision and could run up to 25 mph"
+      ]
+    },
+    {
+      "id": "stegosaurus",
+      "common_name": "Stegosaurus",
+      "scientific_name": "Stegosaurus stenops",
+      "period": "Late Jurassic",
+      "period_years": "155-150 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 9.0,
+      "weight_kg": 2000,
+      "key_facts": [
+        "Had distinctive plates along its back for display or thermoregulation",
+        "Four spikes on tail used for defense",
+        "One of the most recognizable dinosaurs",
+        "Brain was approximately the size of a walnut",
+        "Likely used plates to attract mates during breeding season"
+      ]
+    },
+    {
+      "id": "triceratops",
+      "common_name": "Triceratops",
+      "scientific_name": "Triceratops horridus",
+      "period": "Late Cretaceous",
+      "period_years": "68-66 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 9.0,
+      "weight_kg": 6000,
+      "key_facts": [
+        "Three horns and a large bony frill on its head",
+        "Frill was used for species recognition and defense",
+        "One of the last dinosaurs to exist before extinction",
+        "Could run up to 20 mph despite its size",
+        "Horns were up to 1 meter long"
+      ]
+    },
+    {
+      "id": "brachiosaurus",
+      "common_name": "Brachiosaurus",
+      "scientific_name": "Brachiosaurus altithorax",
+      "period": "Late Jurassic",
+      "period_years": "156-140 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 26.0,
+      "weight_kg": 73000,
+      "key_facts": [
+        "One of the largest land animals ever to exist",
+        "Front legs were longer than hind legs",
+        "Could reach heights up to 13 meters to feed on treetops",
+        "Heart estimated to weigh 400 kg",
+        "Weighed as much as 17 African elephants"
+      ]
+    },
+    {
+      "id": "velociraptor",
+      "common_name": "Velociraptor",
+      "scientific_name": "Velociraptor mongoliensis",
+      "period": "Late Cretaceous",
+      "period_years": "75-71 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Central Asia",
+      "length_m": 1.8,
+      "weight_kg": 15,
+      "key_facts": [
+        "Smaller than often depicted in movies",
+        "Had large curved claw on each foot for hunting",
+        "Likely hunted in packs",
+        "Was incredibly fast and agile",
+        "Had excellent binocular vision for a dinosaur"
+      ]
+    },
+    {
+      "id": "ankylosaurus",
+      "common_name": "Ankylosaurus",
+      "scientific_name": "Ankylosaurus magniventris",
+      "period": "Late Cretaceous",
+      "period_years": "68-66 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 10.7,
+      "weight_kg": 6000,
+      "key_facts": [
+        "Covered in armor plating made of bone and horn",
+        "Had a club-like tail used for defense",
+        "Armor was effective against predator attacks",
+        "Very low center of gravity for stability",
+        "Could not be easily turned over by other dinosaurs"
+      ]
+    },
+    {
+      "id": "parasaurolophus",
+      "common_name": "Parasaurolophus",
+      "scientific_name": "Parasaurolophus walkeri",
+      "period": "Late Cretaceous",
+      "period_years": "76-73 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 9.5,
+      "weight_kg": 2500,
+      "key_facts": [
+        "Had a distinctive curved crest on its head",
+        "Crest was hollow and used for vocalization",
+        "Could make low frequency sounds for communication",
+        "Lived in herds with other hadrosaurs",
+        "Crest resembled a question mark when viewed from the side"
+      ]
+    },
+    {
+      "id": "iguanodon",
+      "common_name": "Iguanodon",
+      "scientific_name": "Iguanodon bernissartensis",
+      "period": "Early Cretaceous",
+      "period_years": "125-113 million years ago",
+      "diet": "Herbivore",
+      "habitat": "Europe",
+      "length_m": 10.0,
+      "weight_kg": 3000,
+      "key_facts": [
+        "One of the first dinosaurs formally recognized and named",
+        "Could walk on two or four legs",
+        "Had a thumb spike possibly used in defense",
+        "Teeth similar to modern iguanas",
+        "Was an important genus for understanding dinosaur evolution"
+      ]
+    },
+    {
+      "id": "spinosaurus",
+      "common_name": "Spinosaurus",
+      "scientific_name": "Spinosaurus aegyptiacus",
+      "period": "Early Cretaceous",
+      "period_years": "112-97 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North Africa",
+      "length_m": 15.0,
+      "weight_kg": 7000,
+      "key_facts": [
+        "Was semi-aquatic, spending time in water",
+        "Sailed-like structures on back were made of tall neural spines",
+        "Larger than T-Rex when including the sail",
+        "Hunted fish and large dinosaurs",
+        "First dinosaur known to hunt in water"
+      ]
+    },
+    {
+      "id": "deinonychus",
+      "common_name": "Deinonychus",
+      "scientific_name": "Deinonychus antirrhopus",
+      "period": "Early Cretaceous",
+      "period_years": "115-108 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 3.4,
+      "weight_kg": 73,
+      "key_facts": [
+        "Name means 'terrible claw'",
+        "Had exceptional hunting abilities and intelligence",
+        "Could run at speeds over 50 km/h",
+        "Hunted in packs to take down larger prey",
+        "Likely one of the smartest dinosaurs"
+      ]
+    },
+    {
+      "id": "archaeopteryx",
+      "common_name": "Archaeopteryx",
+      "scientific_name": "Archaeopteryx lithographica",
+      "period": "Late Jurassic",
+      "period_years": "150 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Europe",
+      "length_m": 0.5,
+      "weight_kg": 1,
+      "key_facts": [
+        "First known bird-dinosaur transition fossil",
+        "Had feathers, wings, and clawed fingers",
+        "Could not fly effectively, likely glided",
+        "Teeth and bony tail similar to theropod dinosaurs",
+        "One of the most important fossils in paleontology"
+      ]
+    },
+    {
+      "id": "apatosaurus",
+      "common_name": "Apatosaurus",
+      "scientific_name": "Apatosaurus ajax",
+      "period": "Late Jurassic",
+      "period_years": "154-146 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 21.0,
+      "weight_kg": 23000,
+      "key_facts": [
+        "Formerly known as Brontosaurus",
+        "One of the largest land animals ever",
+        "Long whip-like tail used for balance and communication",
+        "Would have needed to eat constantly to fuel its body",
+        "Had a very small brain relative to body size"
+      ]
+    },
+    {
+      "id": "allosaurus",
+      "common_name": "Allosaurus",
+      "scientific_name": "Allosaurus fragilis",
+      "period": "Late Jurassic",
+      "period_years": "155-145 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 8.5,
+      "weight_kg": 2300,
+      "key_facts": [
+        "Apex predator of the Jurassic period",
+        "Sharp curved claws on hands and feet",
+        "Could likely reach speeds of 20-30 km/h",
+        "May have hunted cooperatively with others",
+        "Had better binocular vision than most dinosaurs"
+      ]
+    },
+    {
+      "id": "gallimimus",
+      "common_name": "Gallimimus",
+      "scientific_name": "Gallimimus bullatus",
+      "period": "Late Cretaceous",
+      "period_years": "75-71 million years ago",
+      "diet": "Omnivore",
+      "habitat": "Central Asia",
+      "length_m": 6.0,
+      "weight_kg": 450,
+      "key_facts": [
+        "Resembled an ostrich more than a traditional dinosaur",
+        "Could run at speeds exceeding 50 km/h",
+        "Used its tail as a rudder while running",
+        "Had a toothless beak for eating varied foods",
+        "Likely lived in herds for protection"
+      ]
+    },
+    {
+      "id": "carnotaurus",
+      "common_name": "Carnotaurus",
+      "scientific_name": "Carnotaurus sastrei",
+      "period": "Early Cretaceous",
+      "period_years": "100-95 million years ago",
+      "diet": "Carnivore",
+      "habitat": "South America",
+      "length_m": 9.0,
+      "weight_kg": 2500,
+      "key_facts": [
+        "Had two large horns above its eyes",
+        "Bull-like appearance gave it its name",
+        "Could move quickly despite its size",
+        "Horns likely used in intraspecific combat",
+        "One of the few South American large predators"
+      ]
+    },
+    {
+      "id": "ceratosaurus",
+      "common_name": "Ceratosaurus",
+      "scientific_name": "Ceratosaurus nasicornis",
+      "period": "Late Jurassic",
+      "period_years": "155-145 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 8.5,
+      "weight_kg": 1400,
+      "key_facts": [
+        "Had a horn on its nose similar to a modern rhinoceros",
+        "Smaller than T-Rex but very powerful predator",
+        "Horn likely used for display or combat",
+        "Strong forelimbs with large claws",
+        "One of the apex predators of its time"
+      ]
+    },
+    {
+      "id": "dilophosaurus",
+      "common_name": "Dilophosaurus",
+      "scientific_name": "Dilophosaurus wetherilli",
+      "period": "Early Jurassic",
+      "period_years": "193-183 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 7.0,
+      "weight_kg": 400,
+      "key_facts": [
+        "Had two distinctive crests on its head",
+        "Could not spit venom despite movie depictions",
+        "Crests were likely used for species recognition",
+        "Was an important early theropod dinosaur",
+        "Relatively small compared to later carnivores"
+      ]
+    },
+    {
+      "id": "compsognathus",
+      "common_name": "Compsognathus",
+      "scientific_name": "Compsognathus longipes",
+      "period": "Late Jurassic",
+      "period_years": "150 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Europe",
+      "length_m": 1.4,
+      "weight_kg": 3,
+      "key_facts": [
+        "One of the smallest known dinosaurs",
+        "Was about the size of a modern chicken",
+        "Extremely fast and agile for hunting small prey",
+        "Had sharp teeth and claws for catching lizards and insects",
+        "Some of the finest fossils ever found"
+      ]
+    },
+    {
+      "id": "hypsilophodon",
+      "common_name": "Hypsilophodon",
+      "scientific_name": "Hypsilophodon foxii",
+      "period": "Early Cretaceous",
+      "period_years": "125-122 million years ago",
+      "diet": "Herbivore",
+      "habitat": "Europe",
+      "length_m": 2.3,
+      "weight_kg": 45,
+      "key_facts": [
+        "Small herbivorous dinosaur",
+        "Had opposable big toes for climbing",
+        "Could run at speeds up to 30 km/h",
+        "Lived in forested environments",
+        "Teeth adapted for chewing tough plant material"
+      ]
+    },
+    {
+      "id": "eoraptor",
+      "common_name": "Eoraptor",
+      "scientific_name": "Eoraptor lunensis",
+      "period": "Early Triassic",
+      "period_years": "230-228 million years ago",
+      "diet": "Omnivore",
+      "habitat": "South America",
+      "length_m": 1.0,
+      "weight_kg": 3,
+      "key_facts": [
+        "One of the earliest dinosaurs ever discovered",
+        "Had both carnivorous and herbivorous teeth",
+        "Small, bipedal predator-scavenger",
+        "Lived during the early days of dinosaur evolution",
+        "Shows transition between early dinosaurs and later theropods"
+      ]
+    },
+    {
+      "id": "sauropelta",
+      "common_name": "Sauropelta",
+      "scientific_name": "Sauropelta edwardsi",
+      "period": "Early Cretaceous",
+      "period_years": "125-110 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 7.6,
+      "weight_kg": 2000,
+      "key_facts": [
+        "Nodosaur ankylosaur with extensive body armor",
+        "Lacked the tail club of ankylosaurs",
+        "Spikes along shoulders for defense",
+        "Armor was made of osteoderms",
+        "Lived in herds for group protection"
+      ]
+    },
+    {
+      "id": "moschops",
+      "common_name": "Moschops",
+      "scientific_name": "Moschops capensis",
+      "period": "Permian",
+      "period_years": "280-270 million years ago",
+      "diet": "Herbivore",
+      "habitat": "South Africa",
+      "length_m": 5.0,
+      "weight_kg": 1000,
+      "key_facts": [
+        "Synapsid, not a true dinosaur but often confused",
+        "Lived before dinosaurs evolved",
+        "Had thick skull adapted for head-butting",
+        "Ancestor to mammals",
+        "Robust build with powerful hind legs"
+      ]
+    },
+    {
+      "id": "maiasaura",
+      "common_name": "Maiasaura",
+      "scientific_name": "Maiasaura peeblesorum",
+      "period": "Late Cretaceous",
+      "period_years": "80-75 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 9.0,
+      "weight_kg": 2300,
+      "key_facts": [
+        "Evidence shows they were caring parents",
+        "Name means 'good mother lizard'",
+        "Lived in large herds",
+        "Cared for young in nests",
+        "Had complex social structures"
+      ]
+    },
+    {
+      "id": "iguanodon2",
+      "common_name": "Giganotosaurus",
+      "scientific_name": "Giganotosaurus carolinii",
+      "period": "Late Cretaceous",
+      "period_years": "100-95 million years ago",
+      "diet": "Carnivore",
+      "habitat": "South America",
+      "length_m": 12.5,
+      "weight_kg": 8000,
+      "key_facts": [
+        "Larger than T-Rex",
+        "Fast and powerful predator",
+        "Possibly hunted in groups",
+        "Had sharp teeth and claws",
+        "One of the largest carnivorous dinosaurs"
+      ]
+    }
+  ]
+}
