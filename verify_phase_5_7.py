@@ -94,10 +94,8 @@ try:
         else:
             path.unlink()
     
-    # Clean up temp files
-    Path("output/metadata").rmdir() if Path("output/metadata").exists() else None
-    Path("output/articles").rmdir() if Path("output/articles").exists() else None
-    Path("output").rmdir() if Path("output").exists() else None
+    # Note: Don't rmdir output directories — they may contain
+    # files from previous pipeline runs and are gitignored anyway.
     
     print("  ✓ Repository layer working")
 except Exception as e:
