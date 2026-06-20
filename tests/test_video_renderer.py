@@ -24,7 +24,7 @@ def test_create_video(mock_concat, mock_img_clip, mock_audio_clip, tmp_path):
     
     out_path = tmp_path / "out.mp4"
     
-    with patch('src.media.video_renderer.BACKGROUND_MUSIC_PATH.exists', return_value=False):
+    with patch('pathlib.Path.exists', return_value=False):
         create_video(["slide1.png"], ["audio1.wav"], out_path, "long")
         
         mock_final.write_videofile.assert_called_once()

@@ -18,7 +18,12 @@ def test_generate_visuals_slide(mock_image_new, mock_get_pexels, tmp_path):
         mock_final = MagicMock()
         mock_composite.return_value.convert.return_value = mock_final
         
-        result = generate_visuals(tmp_path, "long", slide_content=slide_content, slide_number=1, total_slides=1)
-        
-        assert "slide_01.png" in result
-        mock_final.save.assert_called_once()
+        with patch('src.media.slide_generator.ImageDraw.Draw') as mock_draw_cls:
+            mock_draw = MagicMock()
+            mock_draw.textbbox.return_value = (0.0, 0.0, 100.0, 20.0)
+            mock_draw_cls.return_value = mock_draw
+            
+            result = generate_visuals(tmp_path, "long", slide_content=slide_content, slide_number=1, total_slides=1)
+            
+            assert "slide_01.png" in result
+            mock_final.save.assert_called_once()
