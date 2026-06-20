@@ -2,7 +2,7 @@ name: Daily Dinosaur Generation
 
 on:
   schedule:
-    - cron: '50 12 * * *'  # 12:50 PM UTC daily (6:20 PM IST)
+    - cron: '0 */12 * * *'  # 7 AM UTC daily (12:30 PM IST)
   workflow_dispatch:        # Allow manual trigger
 
 jobs:

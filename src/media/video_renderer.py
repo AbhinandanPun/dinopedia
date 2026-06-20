@@ -16,7 +16,7 @@ def create_video(slide_paths, audio_paths, output_path, video_type):
     """
     output_path = Path(output_path)
     ensure_directory(output_path.parent)
-    logger.info(f"🎬 Creating {video_type} video: {output_path.name}...")
+    logger.info(f"[VIDEO] Creating {video_type} video: {output_path.name}...")
     
     try:
         if not slide_paths or not audio_paths or len(slide_paths) != len(audio_paths):
@@ -38,7 +38,7 @@ def create_video(slide_paths, audio_paths, output_path, video_type):
         final_video = concatenate_videoclips(image_clips, method="compose")
 
         if BACKGROUND_MUSIC_PATH.exists():
-            logger.info("🎵 Adding background music...")
+            logger.info("[MUSIC] Adding background music...")
             bg_music = AudioFileClip(str(BACKGROUND_MUSIC_PATH)).volumex(0.05)
             if bg_music.duration < final_video.duration:
                 bg_music = bg_music.fx(vfx.loop, duration=final_video.duration)
@@ -57,10 +57,21 @@ def create_video(slide_paths, audio_paths, output_path, video_type):
             codec="libx264",
             audio_codec="aac",
             audio_bitrate="192k",
-            preset="medium",
-            threads=4,
-            logger=None
+            preset="ultrafast",
+            threads=4
         )
+        
+        # Explicitly close MoviePy clips to prevent [WinError 6] during garbage collection
+        final_video.close()
+        if 'composite_audio' in locals():
+            composite_audio.close()
+        if 'bg_music' in locals():
+            bg_music.close()
+        for clip in image_clips:
+            if hasattr(clip, 'audio') and clip.audio:
+                clip.audio.close()
+            clip.close()
+            
         logger.info(f"✅ Video created successfully: {output_path}")
 
     except Exception as e:
