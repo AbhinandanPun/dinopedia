@@ -32,15 +32,17 @@ jobs:
       - name: 🧪 Run unit tests
         run: pytest tests/ -v --tb=short
 
-      - name: 🚀 Generate dinosaur content
+      - name: 🚀 Generate dinosaur content and upload to YouTube
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          CLIENT_SECRET_B64: ${{ secrets.CLIENT_SECRET_B64 }}
-          CREDENTIALS_B64: ${{ secrets.CREDENTIALS_B64 }}
-          ENABLE_VIDEO: "true"
-          ENABLE_YOUTUBE: "true"
-        run: python -m src.main
+        run: |
+          # Reconstruct the credentials from Base64
+          echo "${{ secrets.CLIENT_SECRET_B64 }}" | base64 --decode > client_secrets.json
+          echo "${{ secrets.CREDENTIALS_B64 }}" | base64 --decode > credentials.json
+          
+          # Run the full modular pipeline
+          python run_steps.py all
 
       - name: 💾 Commit & push
         if: success()
