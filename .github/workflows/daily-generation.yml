@@ -38,8 +38,8 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
           # Reconstruct the credentials from Base64
-          echo "${{ secrets.CLIENT_SECRET_B64 }}" | base64 --decode > client_secrets.json
-          echo "${{ secrets.CREDENTIALS_B64 }}" | base64 --decode > credentials.json
+          echo "${{ secrets.YOUTUBE_CLIENT_SECRETS_BASE64 }}" | base64 --decode > client_secrets.json
+          echo "${{ secrets.YOUTUBE_CREDENTIALS_BASE64 }}" | base64 --decode > credentials.json
           
           # Run the full modular pipeline
           python run_steps.py all
