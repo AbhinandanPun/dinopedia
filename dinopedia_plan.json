@@ -10,9 +10,9 @@
     {
       "id": "stegosaurus",
       "common_name": "Stegosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-21T14:30:38.853566"
     },
     {
       "id": "triceratops",
