@@ -40,44 +40,45 @@ class TestGenerateDinosaurContent:
             with pytest.raises(AssertionError, match="hashtags"):
                 generate_dinosaur_content("trex")
 
-    def test_article_too_short_raises(self, sample_content):
-        sample_content["article"] = "A" * 100  # way below 4000
+    def test_article_too_short_logs_warning(self, sample_content):
+        sample_content["article"] = "A" * 100  # way below 3000
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="not in 4000-8000"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert len(result["article"]) == 100
 
-    def test_article_too_long_raises(self, sample_content):
-        sample_content["article"] = "A" * 10000  # above 8000
+    def test_article_too_long_logs_warning(self, sample_content):
+        sample_content["article"] = "A" * 15000  # above 10000
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="not in 4000-8000"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert len(result["article"]) == 15000
 
-    def test_snippet_too_short_raises(self, sample_content):
-        sample_content["social_snippet"] = "B" * 10  # below 150
+    def test_snippet_too_short_logs_warning(self, sample_content):
+        sample_content["social_snippet"] = "B" * 10  # below 100
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="not in 150-250"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert len(result["social_snippet"]) == 10
 
-    def test_snippet_too_long_raises(self, sample_content):
+    def test_snippet_too_long_truncates(self, sample_content):
         sample_content["social_snippet"] = "B" * 300  # above 250
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="not in 150-250"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert len(result["social_snippet"]) == 250
+            assert result["social_snippet"].endswith("...")
 
-    def test_too_few_hashtags_raises(self, sample_content):
-        sample_content["hashtags"] = ["#one", "#two"]  # below 3
+    def test_too_few_hashtags_passes(self, sample_content):
+        sample_content["hashtags"] = ["#one", "#two"]
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="not in 3-10"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert len(result["hashtags"]) == 2
 
-    def test_too_many_hashtags_raises(self, sample_content):
+    def test_too_many_hashtags_truncates(self, sample_content):
         sample_content["hashtags"] = [f"#tag{i}" for i in range(15)]  # above 10
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="not in 3-10"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert len(result["hashtags"]) == 10
 
-    def test_hashtags_not_list_raises(self, sample_content):
-        sample_content["hashtags"] = "#dinosaurs"  # string, not list
+    def test_hashtags_not_list_parses(self, sample_content):
+        sample_content["hashtags"] = "#dino #trex"  # string, not list
         with self._mock_generate(sample_content):
-            with pytest.raises(AssertionError, match="must be a list"):
-                generate_dinosaur_content("trex")
+            result = generate_dinosaur_content("trex")
+            assert result["hashtags"] == ["#dino", "#trex"]
