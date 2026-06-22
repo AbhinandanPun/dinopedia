@@ -17,9 +17,9 @@
     {
       "id": "triceratops",
       "common_name": "Triceratops",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-22T05:14:18.694315"
     },
     {
       "id": "brachiosaurus",
