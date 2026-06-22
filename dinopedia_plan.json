@@ -24,9 +24,9 @@
     {
       "id": "brachiosaurus",
       "common_name": "Brachiosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-22T17:12:57.970783"
     },
     {
       "id": "velociraptor",
