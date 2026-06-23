@@ -38,9 +38,9 @@
     {
       "id": "ankylosaurus",
       "common_name": "Ankylosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-23T15:20:26.019878"
     },
     {
       "id": "parasaurolophus",
