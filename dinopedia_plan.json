@@ -52,9 +52,9 @@
     {
       "id": "iguanodon",
       "common_name": "Iguanodon",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-24T14:51:42.624406"
     },
     {
       "id": "spinosaurus",
