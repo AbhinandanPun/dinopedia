@@ -45,9 +45,9 @@
     {
       "id": "parasaurolophus",
       "common_name": "Parasaurolophus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-24T04:15:49.832862"
     },
     {
       "id": "iguanodon",
