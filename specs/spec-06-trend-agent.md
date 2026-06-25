@@ -18,7 +18,7 @@ Currently, the content queue is a **static JSON file** (`dinopedia_plan.json`) w
 ## Proposed Solution
 
 Build a **Producer Agent** that runs on two cadences:
-1. **Weekly**: Research trending topics for existing channels → propose new topics → owner approves → added to plan
+1. **Daily**: Research trending topics for existing channels → propose today's hot topics → owner approves/automates → added to plan
 2. **Monthly**: Research potential new niches → propose new channel ideas → owner decides whether to create
 
 This is a genuine **agentic AI** use case because it requires judgment, exploration, and adapting to ambiguous real-world signals.
@@ -27,23 +27,23 @@ This is a genuine **agentic AI** use case because it requires judgment, explorat
 
 ```mermaid
 flowchart TD
-    subgraph WeeklyRun["📅 Weekly: Topic Discovery"]
-        W1["Read channel configs\n(know which niches exist)"] --> W2["Search trending sources\n(Google Trends, Reddit, YouTube)"]
+    subgraph DailyRun["Daily: Topic Discovery"]
+        W1["Read channel configs"] --> W2["Search trending sources"]
         W2 --> W3["Filter by niche relevance"]
         W3 --> W4["Score by engagement potential"]
-        W4 --> W5["Generate topic proposals\n(title, description, thumbnail concept)"]
+        W4 --> W5["Generate topic proposals"]
         W5 --> W6["Save report for owner review"]
     end
 
-    subgraph MonthlyRun["📅 Monthly: Niche Discovery"]
-        M1["Scan broad trends\n(what niches are growing?)"] --> M2["Evaluate competition level"]
-        M2 --> M3["Estimate content potential\n(how many topics can we make?)"]
+    subgraph MonthlyRun["Monthly: Niche Discovery"]
+        M1["Scan broad trends"] --> M2["Evaluate competition level"]
+        M2 --> M3["Estimate content potential"]
         M3 --> M4["Propose 2-3 new channel ideas"]
         M4 --> M5["Save report for owner review"]
     end
 
-    subgraph OwnerFlow["👤 Owner Review"]
-        O1["Read weekly/monthly report"] --> O2{Decision}
+    subgraph OwnerFlow["Owner Review"]
+        O1["Read daily/monthly report"] --> O2{"Decision"}
         O2 -->|"Approve topics"| O3["Add to channel plan.json"]
         O2 -->|"Approve niche"| O4["Owner creates channel manually"]
         O2 -->|"Reject"| O5["Skip / Archive"]
@@ -52,7 +52,7 @@ flowchart TD
     W6 --> O1
     M5 --> O1
 
-    style WeeklyRun fill:#553c9a,stroke:#6b46c1,color:#e2e8f0
+    style DailyRun fill:#553c9a,stroke:#6b46c1,color:#e2e8f0
     style MonthlyRun fill:#2c5282,stroke:#3182ce,color:#e2e8f0
     style OwnerFlow fill:#744210,stroke:#d69e2e,color:#e2e8f0
 ```
@@ -69,13 +69,13 @@ flowchart TD
 | **Wikipedia** | "In the news" / recent discoveries | Web scraping (free) |
 | **Google News** | Breaking news in niche | Gemini web search grounding |
 
-### 2. Weekly Topic Discovery
+### 2. Daily Topic Discovery
 
 ```python
 class ProducerAgent:
     """Discovers trending topics for existing channels."""
     
-    def weekly_research(self, channel_config: dict) -> TopicReport:
+    def daily_research(self, channel_config: dict) -> TopicReport:
         niche = channel_config["niche"]
         existing_topics = self._load_existing_plan(channel_config)
         
@@ -88,14 +88,14 @@ class ProducerAgent:
         prompt = f"""
         You are a content strategist for a YouTube channel about {niche}.
         
-        Here are this week's signals:
+        Here are today's signals:
         - Google Trends: {trends}
         - YouTube Trending: {youtube_hot}
         - Reddit Buzz: {reddit_buzz}
         
         Already covered topics (DO NOT suggest these): {existing_topics}
         
-        Suggest 5-7 new video topics. For each:
+        Suggest 1-3 new video topics. For each:
         1. Title (click-worthy, YouTube-optimized)
         2. Description (2-3 sentences explaining the angle)
         3. Thumbnail concept (visual description)
@@ -118,7 +118,7 @@ class ProducerAgent:
 
 ### 3. Topic Proposal Format
 
-Each proposal in the weekly report:
+Each proposal in the daily report:
 
 ```json
 {
@@ -138,9 +138,9 @@ Reports are saved to a dedicated directory:
 
 ```
 reports/
-├── weekly/
-│   ├── 2026-W26_dinopedia.json    # This week's proposals
-│   ├── 2026-W26_spacepedia.json
+├── daily/
+│   ├── 2026-06-26_dinopedia.json    # Daily proposals
+│   ├── 2026-06-26_spacepedia.json
 │   └── ...
 └── monthly/
     └── 2026-06_niche_research.json
@@ -149,10 +149,10 @@ reports/
 **Approval mechanism** (simple file-based):
 
 ```json
-// reports/weekly/2026-W26_dinopedia.json
+// reports/daily/2026-06-26_dinopedia.json
 {
   "channel_id": "dinopedia",
-  "generated_at": "2026-06-25T00:00:00Z",
+  "generated_at": "2026-06-26T00:00:00Z",
   "status": "awaiting_review",
   "proposals": [
     {
@@ -180,17 +180,17 @@ def monthly_niche_research(self) -> NicheReport:
     Requirements:
     - Each niche must have 100+ potential video topics
     - The niche should be growing (not saturated)
-    - Content should be factual/educational (not opinion-based)
+    - Factual/educational (not opinion-based)
     - Suitable for AI-generated content (factual, visual)
     
     For each niche, provide:
-    1. Channel name suggestion (catchy, memorable)
+    1. Channel name suggestion
     2. Niche description
     3. Target audience
     4. Sample topics (10 examples)
-    5. Competition level (low/medium/high)
+    5. Competition level
     6. Growth potential (1-10)
-    7. Content sustainability (how long before topics run out?)
+    7. Content sustainability
     """
     
     return generate_content(prompt)
@@ -200,11 +200,11 @@ def monthly_niche_research(self) -> NicheReport:
 
 ```yaml
 # .github/workflows/trend-research.yml
-name: Weekly Trend Research
+name: Daily Trend Research
 
 on:
   schedule:
-    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
+    - cron: '0 6 * * *'  # Every day at 6 AM UTC
   workflow_dispatch:
 
 jobs:
@@ -223,14 +223,14 @@ jobs:
       - name: 🔍 Research trends for ${{ matrix.channel }}
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-        run: python -m src.agents.producer_agent weekly --channel=${{ matrix.channel }}
+        run: python -m src.agents.producer_agent daily --channel=${{ matrix.channel }}
       
       - name: 💾 Commit report
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add reports/
-          git diff --cached --quiet || git commit -m "research: weekly trends for ${{ matrix.channel }}"
+          git diff --cached --quiet || git commit -m "research: daily trends for ${{ matrix.channel }}"
           git push
 ```
 
@@ -240,7 +240,7 @@ jobs:
 |--------|------|--------|
 | **NEW** | `src/agents/producer_agent.py` | Trend research agent |
 | **NEW** | `src/agents/trend_sources.py` | Google Trends, Reddit, YouTube API wrappers |
-| **NEW** | `.github/workflows/trend-research.yml` | Weekly/monthly research schedule |
+| **NEW** | `.github/workflows/trend-research.yml` | Daily/monthly research schedule |
 | **MODIFY** | `run_steps.py` | Add step to ingest approved topics into plan |
 | **MODIFY** | `requirements.txt` | Add `pytrends`, `praw` (Reddit) |
 
@@ -252,7 +252,7 @@ jobs:
 | YouTube Data API: Trending search | 100 quota units |
 | Reddit API | Free |
 | Google Trends (pytrends) | Free |
-| **Total weekly (5 channels)** | **~$0.05** |
+| **Total monthly (5 channels)** | **~$1.50** |
 
 ## Open Questions
 
@@ -263,14 +263,14 @@ jobs:
 > **Q2**: Should the Producer Agent also suggest the order/priority of approved topics? (e.g., "Cover the breaking news topic first, then the evergreen ones")
 
 > [!IMPORTANT]
-> **Q3**: How many topics should the weekly report suggest? 5-7 feels right for review, but we could go higher.
+> **Q3**: How many topics should the daily report suggest? 1-3 feels right for a daily cadence.
 
 ## Acceptance Criteria
 
-- [ ] Weekly agent runs automatically every Monday via GitHub Actions
-- [ ] Produces a structured report with 5-7 topic proposals per channel
+- [ ] Daily agent runs automatically every day via GitHub Actions
+- [ ] Produces a structured report with 1-3 topic proposals per channel
 - [ ] Each proposal includes title, description, thumbnail concept, and engagement score
 - [ ] Owner can approve/reject by editing the report JSON and committing
 - [ ] Approved topics are automatically added to the channel's plan.json
 - [ ] Monthly niche discovery report generated on the 1st of each month
-- [ ] Duplicate detection: never suggests topics already in the plan
+- [ ] Duplicate detection: never suggests topics already in the plan or channel archive

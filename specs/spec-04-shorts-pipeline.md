@@ -22,12 +22,12 @@ Generate **2 YouTube Shorts alongside every long-form video**, using the same ar
 
 ```mermaid
 flowchart TD
-    A["ContentBundle\n(full article, 8 slides)"] --> B["Extract Shorts Material"]
-    B --> C["Short 1: 'Most Shocking Fact'\n(1-2 slides, 30 sec)"]
-    B --> D["Short 2: 'Did You Know?'\n(1-2 slides, 30 sec)"]
+    A["ContentBundle - full article, 8 slides"] --> B["Extract Shorts Material"]
+    B --> C["Short 1: Most Shocking Fact"]
+    B --> D["Short 2: Did You Know"]
     
-    A --> E["Long Video Pipeline\n(8 slides, 1920×1080)"]
-    C --> F["Short Video Pipeline\n(1-2 slides, 1080×1920)"]
+    A --> E["Long Video Pipeline - 1920x1080"]
+    C --> F["Short Video Pipeline - 1080x1920"]
     D --> F
     
     E --> G["Upload: Long Video"]
@@ -157,9 +157,9 @@ def upload_short(video_path: str, content: dict, channel_config: dict) -> str:
 ```mermaid
 flowchart TD
     S1["Step 1: Generate Content"] --> S2["Step 2: Save Article"]
-    S2 --> S3["Step 3a: Generate Long Slides (16:9)"]
+    S2 --> S3["Step 3a: Generate Long Slides"]
     S2 --> S3b["Step 3b: Extract Shorts Content"]
-    S3b --> S3c["Step 3c: Generate Short Slides (9:16)"]
+    S3b --> S3c["Step 3c: Generate Short Slides"]
     S3 --> S4["Step 4a: Generate Long Audio"]
     S3c --> S4b["Step 4b: Generate Short Audio"]
     S4 --> S5a["Step 5a: Render Long Video"]

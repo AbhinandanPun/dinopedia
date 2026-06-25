@@ -28,26 +28,26 @@ Introduce a two-agent architecture within the existing pipeline. These are **lig
 
 ```mermaid
 flowchart TD
-    subgraph GeneratorAgent["🤖 Generator Agent"]
+    subgraph GeneratorAgent["Generator Agent"]
         G1["Read topic from plan"] --> G2["Generate article script"]
         G2 --> G3["Generate audio narration prompt"]
         G3 --> G4["Generate visual scene descriptions"]
-        G4 --> G5["Generate SEO metadata\n(title, description, tags)"]
+        G4 --> G5["Generate SEO metadata"]
         G5 --> G6["Package: ContentBundle"]
     end
 
-    subgraph ReviewerAgent["🔍 Reviewer Agent"]
-        R1["Receive ContentBundle"] --> R2["Copyright Check\n(originality score)"]
-        R2 --> R3["Quality Check\n(hook, pacing, engagement)"]
-        R3 --> R4["Platform Compliance\n(YouTube + TikTok policies)"]
-        R4 --> R5["Trend Relevance\n(is this timely?)"]
-        R5 --> R6{Decision}
-        R6 -->|"✅ APPROVED"| R7["Pass to Media Pipeline"]
-        R6 -->|"⚠️ NEEDS REVISION"| R8["Return feedback to Generator"]
-        R6 -->|"❌ REJECTED"| R9["Flag for owner review"]
+    subgraph ReviewerAgent["Reviewer Agent"]
+        R1["Receive ContentBundle"] --> R2["Copyright Check"]
+        R2 --> R3["Quality Check"]
+        R3 --> R4["Platform Compliance"]
+        R4 --> R5["Trend Relevance"]
+        R5 --> R6{"Decision"}
+        R6 -->|"APPROVED"| R7["Pass to Media Pipeline"]
+        R6 -->|"NEEDS REVISION"| R8["Return feedback to Generator"]
+        R6 -->|"REJECTED"| R9["Flag for owner review"]
     end
 
-    subgraph OwnerReview["👤 Owner Review (dev mode only)"]
+    subgraph OwnerReview["Owner Review - dev mode only"]
         O1["Review ContentBundle + Reviewer report"]
         O1 -->|"Approve"| O2["Continue to media production"]
         O1 -->|"Edit"| O3["Modify and resubmit"]
@@ -56,7 +56,7 @@ flowchart TD
 
     G6 --> R1
     R8 -->|"Max 2 retries"| G2
-    R7 -->|"Production mode"| MediaPipeline["⚙️ Media Production"]
+    R7 -->|"Production mode"| MediaPipeline["Media Production"]
     R7 -->|"Dev mode"| O1
     O2 --> MediaPipeline
 
@@ -214,12 +214,12 @@ The owner reviews by:
 ```mermaid
 flowchart TD
     G["Generator: Create Bundle"] --> R["Reviewer: Evaluate"]
-    R -->|"Approved (score ≥ 7/10)"| Done["✅ Proceed to media"]
-    R -->|"Needs Revision (score 4-6)"| Feedback["Extract feedback"]
-    Feedback --> G2["Generator: Revise (attempt 2)"]
+    R -->|"Approved - score 7+"| Done["Proceed to media"]
+    R -->|"Needs Revision - score 4-6"| Feedback["Extract feedback"]
+    Feedback --> G2["Generator: Revise - attempt 2"]
     G2 --> R2["Reviewer: Re-evaluate"]
     R2 -->|"Approved"| Done
-    R2 -->|"Still failing"| Skip["⚠️ Flag for owner + skip topic"]
+    R2 -->|"Still failing"| Skip["Flag for owner + skip topic"]
 
     style G fill:#553c9a,color:#e2e8f0
     style R fill:#2c5282,color:#e2e8f0

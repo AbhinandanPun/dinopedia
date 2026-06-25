@@ -29,10 +29,10 @@ Add a **3-step content optimization chain** into the Generator Agent:
 
 ```mermaid
 flowchart TD
-    A["Raw Article\n(from content generator)"] --> B["🧠 Editor Pass\n'Improve hook, pacing, cliffhangers'"]
-    B --> C["🧠 SEO Pass\n'Generate title, description, tags'"]
-    C --> D["📝 Subtitle Generator\n'Create SRT from slide text'"]
-    D --> E["✅ Optimized Content Package"]
+    A["Raw Article"] --> B["Editor Pass"]
+    B --> C["SEO Pass"]
+    C --> D["Subtitle Generator"]
+    D --> E["Optimized Content Package"]
 
     style A fill:#2d3748,color:#e2e8f0
     style B fill:#553c9a,color:#e2e8f0

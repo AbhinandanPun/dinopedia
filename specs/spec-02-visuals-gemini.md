@@ -36,13 +36,13 @@ Replace Pexels with **Gemini 2.5 Flash Image generation** to create unique, cust
 
 ```mermaid
 flowchart LR
-    subgraph Current["❌ Current (Pexels + PIL)"]
-        A1["Search 'dinosaur trex'"] --> B1["Download stock photo"]
+    subgraph Current["Current - Pexels + PIL"]
+        A1["Search dinosaur trex"] --> B1["Download stock photo"]
         B1 --> C1["Gaussian blur + text overlay"]
         C1 --> D1["Generic slide PNG"]
     end
 
-    subgraph Proposed["✅ Proposed (Gemini Image)"]
+    subgraph Proposed["Proposed - Gemini Image"]
         A2["Slide content + visual prompt"] --> B2["Gemini Image API"]
         B2 --> C2["Unique AI image"]
         C2 --> D2["Composite with text overlay"]
@@ -150,10 +150,10 @@ The existing PIL text overlay logic in `slide_generator.py` stays mostly the sam
 ```mermaid
 flowchart TD
     A["Gemini: Generate background image"] --> B["PIL: Load AI image"]
-    B --> C["PIL: Apply semi-transparent dark overlay\n(improves text readability)"]
+    B --> C["PIL: Apply dark overlay"]
     C --> D["PIL: Draw header text"]
     D --> E["PIL: Draw body content"]
-    E --> F["PIL: Draw footer (slide number)"]
+    E --> F["PIL: Draw footer"]
     F --> G["Save final slide PNG"]
 
     style A fill:#553c9a,color:#e2e8f0
