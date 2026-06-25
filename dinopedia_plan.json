@@ -59,9 +59,9 @@
     {
       "id": "spinosaurus",
       "common_name": "Spinosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-25T04:15:14.628488"
     },
     {
       "id": "deinonychus",
