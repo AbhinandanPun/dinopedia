@@ -66,9 +66,9 @@
     {
       "id": "deinonychus",
       "common_name": "Deinonychus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-26T04:21:51.315586"
     },
     {
       "id": "archaeopteryx",
