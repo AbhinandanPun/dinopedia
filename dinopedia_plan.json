@@ -73,9 +73,9 @@
     {
       "id": "archaeopteryx",
       "common_name": "Archaeopteryx",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-26T14:43:41.556043"
     },
     {
       "id": "apatosaurus",
