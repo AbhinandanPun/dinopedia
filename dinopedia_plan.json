@@ -87,9 +87,9 @@
     {
       "id": "allosaurus",
       "common_name": "Allosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-27T14:02:48.454287"
     },
     {
       "id": "gallimimus",
