@@ -94,57 +94,59 @@ def extract_shorts_content(article: str, topic_name: str) -> list[dict]:
 |----------|-----------|-------------|
 | **Resolution** | 1920×1080 (16:9) | 1080×1920 (9:16) |
 | **Duration** | 2-5 minutes | 20-45 seconds |
-| **Slides** | 6-8 | 1-2 |
+| **Visuals** | Timeline of B-roll segments | Timeline of vertical B-roll segments |
 | **Audio** | Full narration | Quick, punchy narration |
 | **Music** | Background at 5% | Background at 10% (more energy) |
-| **Text** | Detailed content | Large, bold, minimal text |
+| **Text** | Detailed content | Large, bold, minimal center-subtitles |
 | **Transitions** | Fade 0.5s | Quick cut or zoom |
 
-### 3. Short Slide Generation
+### 3. Short B-Roll Timeline Assembly
+
+Instead of drawing text onto slide cards, the engine compiles a short-form vertical video:
 
 ```python
-def generate_short_slide(content: dict, channel_config: dict) -> Path:
-    """Generate a vertical (9:16) slide for Shorts."""
+def assemble_short_timeline(content: dict, channel_config: dict) -> list[dict]:
+    """Assemble a vertical (9:16) visual timeline plan for a Short."""
     
-    # Generate vertical AI image
-    image = generate_image(
-        prompt=content["visual_prompt"],
-        aspect_ratio="9:16",
-        config=channel_config
-    )
+    timeline = []
+    # Generate vertical AI image or fetch vertical stock video
+    for prompt in content.get("visual_prompts", []):
+        timeline.append({
+            "asset_type": "gemini_image",
+            "prompt": prompt,
+            "aspect_ratio": "9:16",
+            "motion_effect": "zoom_in",
+            "duration": 5.0
+        })
     
-    # Large, bold text overlay (Shorts need bigger text)
-    slide = create_vertical_slide(
-        background=image,
-        hook_text=content["hook"],
-        body_text=content["script"],
-        font_size_hook=72,   # Much larger than long-form
-        font_size_body=48,
-        text_position="center"
-    )
-    
-    return slide
+    return timeline
 ```
 
-### 4. Upload Strategy
+### 4. Upload & Linking Strategy
 
-Shorts are uploaded with `#Shorts` in the title/description. YouTube automatically detects vertical videos ≤60 seconds as Shorts.
+Shorts are uploaded with `#Shorts` in the title and description, and cross-promoted back to the parent long-form video. The upload times are randomized across the day using YouTube's native API scheduling parameter:
 
 ```python
-def upload_short(video_path: str, content: dict, channel_config: dict) -> str:
-    """Upload a Short to YouTube."""
+def upload_short(video_path: str, content: dict, parent_youtube_id: str, channel_config: dict) -> str:
+    """Upload a Short to YouTube and link to parent long video, scheduling randomly."""
     
-    title = f"{content['hook'][:90]} #Shorts"  # Max 100 chars for Shorts
+    title = f"{content['hook'][:90]} #Shorts"
+    # Embed parent long-form video link in description
+    description = f"{content['script']}\n\nWatch full video: https://youtu.be/{parent_youtube_id}\n\n#Shorts"
+    
+    # Calculate a random publishing timestamp within the current 24h window
+    publish_time = calculate_random_publish_time()
     
     body = {
         "snippet": {
             "title": title,
-            "description": f"{content['script']}\n\n#Shorts #{channel_config['niche']}",
+            "description": description,
             "tags": channel_config.get("default_tags", []) + ["#Shorts"],
             "categoryId": channel_config["youtube_category"]
         },
         "status": {
-            "privacyStatus": "public",
+            "privacyStatus": "private",  # Required for scheduled publishing
+            "publishAt": publish_time.isoformat(),  # Native API scheduling
             "selfDeclaredMadeForKids": False
         }
     }
@@ -157,17 +159,16 @@ def upload_short(video_path: str, content: dict, channel_config: dict) -> str:
 ```mermaid
 flowchart TD
     S1["Step 1: Generate Content"] --> S2["Step 2: Save Article"]
-    S2 --> S3["Step 3a: Generate Long Slides"]
+    S2 --> S3["Step 3a: Generate Long B-Roll Plan"]
     S2 --> S3b["Step 3b: Extract Shorts Content"]
-    S3b --> S3c["Step 3c: Generate Short Slides"]
+    S3b --> S3c["Step 3c: Generate Short B-Roll Plan"]
     S3 --> S4["Step 4a: Generate Long Audio"]
     S3c --> S4b["Step 4b: Generate Short Audio"]
     S4 --> S5a["Step 5a: Render Long Video"]
     S4b --> S5b["Step 5b: Render Short Videos"]
     S5a --> S6a["Step 6a: Upload Long Video"]
-    S5b --> S6b["Step 6b: Upload Shorts"]
-    S6a --> S7["Step 7: Mark Complete"]
-    S6b --> S7
+    S6a -->|"Get YouTube Video ID"| S6b["Step 6b: Link & Upload Shorts"]
+    S6b --> S7["Step 7: Mark Complete"]
 
     style S3b fill:#553c9a,color:#e2e8f0
     style S3c fill:#553c9a,color:#e2e8f0
@@ -180,11 +181,10 @@ flowchart TD
 
 | Action | File | Change |
 |--------|------|--------|
-| **MODIFY** | [run_steps.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/run_steps.py) | Add Short extraction, rendering, and upload sub-steps |
-| **MODIFY** | [slide_generator.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/src/media/slide_generator.py) | Add vertical (9:16) slide layout |
-| **MODIFY** | [video_renderer.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/src/media/video_renderer.py) | Add short video rendering config |
-| **MODIFY** | [youtube_uploader.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/src/distribution/youtube_uploader.py) | Handle Shorts-specific metadata |
-| **NEW** | `src/generation/shorts_extractor.py` | Extract short-form content from articles |
+| **MODIFY** | [run_steps.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/run_steps.py) | Add Short extraction, rendering, description linking, and upload sub-steps |
+| **MODIFY** | [video_renderer.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/src/media/video_renderer.py) | Handle vertical 9:16 render layouts and B-roll timeline assembly |
+| **MODIFY** | [youtube_uploader.py](file:///c:/Users/User/OneDrive/Documents/Workspace/dinopedia/src/distribution/youtube_uploader.py) | Implement randomized scheduling offsets and cross-linking descriptions |
+| **NEW** | `src/generation/shorts_extractor.py` | Extract short-form B-roll and script packages from articles |
 
 ## Cost Estimate (Incremental per Video Cycle)
 
@@ -200,23 +200,31 @@ flowchart TD
 > [!WARNING]
 > With 3 uploads per cycle (1 long + 2 shorts), YouTube API quota becomes the bottleneck at **~3 cycles per day** per GCP project (10,000 units ÷ 3 × 1,600 per upload ≈ 2 full cycles).
 
-## Open Questions
+## Architectural Decisions & Refinements
 
-> [!IMPORTANT]
-> **Q1**: Should Shorts be uploaded immediately alongside the Long video, or staggered (e.g., Short 1 at upload time, Short 2 six hours later) for better algorithmic spread?
+Based on review iterations, the following engineering patterns are finalized for the Shorts pipeline:
 
-> [!IMPORTANT]
-> **Q2**: Should Shorts link back to the full Long video in the description? (e.g., "Watch the full video: [link]") This is a common cross-promotion strategy.
+### 1. Randomized Upload Pacing (Q1 Resolution)
+*   **Decision**: Long-form videos and both Shorts will be uploaded to publish randomly at any time of the day.
+*   **Engineering Implementation**: The pipeline will calculate a randomized publishing schedule. Long videos are scheduled randomly, Short 1 is offset by a random window of 3 to 6 hours, and Short 2 by 8 to 14 hours. We use the YouTube API's native `publishAt` property with `privacyStatus: "private"`.
 
-> [!IMPORTANT]
-> **Q3**: For platforms beyond YouTube (future: Instagram Reels, TikTok), should we generate platform-specific variants, or use the same vertical video everywhere?
+### 2. Description Cross-Linking (Q2 Resolution)
+*   **Decision**: Shorts descriptions must automatically link back to their parent long-form video.
+*   **Engineering Implementation**: The upload process is serialized: the long-form video is uploaded first, generating its YouTube URL. The pipeline copies this URL and inserts a `"Watch the full video: https://youtu.be/{youtube_id}"` link in the metadata description of the two matching Shorts before calling their upload scripts.
+
+### 3. Platform Standardization (Q3 Resolution)
+*   **Decision**: A single standardized vertical 9:16 format will be used everywhere (YouTube, Reels, TikTok) without platform-specific variations.
+
+---
 
 ## Acceptance Criteria
 
 - [ ] 2 Shorts automatically generated alongside every long-form video
-- [ ] Shorts use vertical 9:16 resolution (1080×1920)
+- [ ] Shorts use vertical 9:16 resolution (1080×1920) with timeline B-roll layouts
 - [ ] Shorts are 20-45 seconds with engaging hook
 - [ ] Shorts have `#Shorts` in title for YouTube auto-detection
+- [ ] Shorts descriptions automatically contain the parent video link
+- [ ] Upload times are randomized using YouTube's native `publishAt` schedule parameter
 - [ ] Shorts content is extracted from the same article (no extra Gemini article call)
 - [ ] Pipeline handles both long + shorts in a single run
 - [ ] YouTube quota budget accounts for 3 uploads per cycle
