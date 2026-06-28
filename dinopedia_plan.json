@@ -101,9 +101,9 @@
     {
       "id": "carnotaurus",
       "common_name": "Carnotaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-28T14:08:33.330780"
     },
     {
       "id": "ceratosaurus",
