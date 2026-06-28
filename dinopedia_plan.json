@@ -94,9 +94,9 @@
     {
       "id": "gallimimus",
       "common_name": "Gallimimus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-28T04:31:10.243247"
     },
     {
       "id": "carnotaurus",
