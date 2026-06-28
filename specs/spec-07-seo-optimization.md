@@ -195,20 +195,33 @@ Tags: tyrannosaurus rex, t rex facts, dinosaur documentary, ...
 | Subtitle generation | Free (no API call) |
 | **Total per video** | **~$0.005** |
 
-## Open Questions
+## Architectural Decisions & Refinements
 
-> [!IMPORTANT]
-> **Q1**: Should the editor pass be allowed to change the article structure (add/remove sections), or only improve the wording within existing sections?
+Based on review iterations, the following SEO and editorial optimization patterns are finalized:
 
-> [!IMPORTANT]
-> **Q2**: For subtitles, should we upload them as YouTube captions (via the Captions API), or burn them into the video as text overlays?
+### 1. Wording-Only Editorial Scope (Q1 Resolution)
+*   **Decision**: The Editor Agent is restricted to improving storytelling, hooks, and engagement *within* existing section boundaries, and cannot alter the structural sections of the script.
+*   **Engineering Implementation**:
+    *   The prompt configuration for the Editor Agent will be strictly constrained:
+        `"You must preserve the exact chronological sections and factual content generated in the draft script. Your modifications are strictly limited to polishing wording, improving sentence cadence, reinforcing hook suspense, adding transition phrases, and inserting CTAs within each predefined section. Do not add, delete, or merge sections."`
+
+### 2. Burned-In Open Captions (Q2 Resolution)
+*   **Decision**: Subtitles will be burned directly into the video file as text overlays.
+*   **Engineering Implementation**:
+    *   The pipeline will export the narration block timing to a standard `.srt` subtitle file.
+    *   During final video composition, the media renderer uses FFmpeg's video filters (or MoviePy's TextClip compositor) to burn the text overlays directly into the MP4 file.
+    *   Subtitles will be styled (font, stroke, color, sizing, placement) dynamically based on the active channel's visual configuration parameters (`channels/<channel_id>/config.json`), ensuring consistent styling across all video platforms (YouTube, Reels, TikTok).
+
+---
 
 ## Acceptance Criteria
 
 - [ ] Every video goes through an editor pass before media production
+- [ ] Editor pass strictly preserves structural section boundaries and limits changes to wording/hooks
 - [ ] YouTube titles are click-worthy with emoji, numbers, and curiosity gaps
-- [ ] Descriptions include timestamps matching actual slide timings
+- [ ] Descriptions include timestamps matching actual video timeline timings
 - [ ] 15-20 SEO tags generated per video
 - [ ] SRT subtitle file generated alongside each video
-- [ ] SEO metadata is configurable per channel (niche-aware prompts)
-- [ ] A/B: measurably better CTR than current plain titles (manual check)
+- [ ] Subtitles are burned directly into the video MP4 file as open captions
+- [ ] Subtitle styles (font, sizing, positioning) are loaded from the channel's config.json
+- [ ] SEO metadata prompts are configurable per channel (niche-aware prompts)
