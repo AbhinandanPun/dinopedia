@@ -253,23 +253,44 @@ Maximum 2 revision attempts. If still failing, skip the topic and flag for owner
 | Revision (50% chance) | ~$0.005 |
 | **Total per video** | **~$0.02** |
 
-## Open Questions
+## Architectural Decisions & Refinements
 
-> [!IMPORTANT]
-> **Q1**: For the owner review in dev mode, is checking staged JSON files sufficient? Or would you prefer a simple notification (e.g., GitHub issue created automatically, or a message sent to your phone)?
+Based on review iterations, the following engineering patterns are finalized for the agentic quality and verification pipeline:
 
-> [!IMPORTANT]
-> **Q2**: Should the Reviewer Agent have access to the internet (e.g., to check if similar content already exists on YouTube), or should it only evaluate based on the content itself?
+### 1. Developer Notification System (Q1 Resolution)
+*   **Decision**: When content is staged for review in developer mode, the owner will receive a notification via email or phone message.
+*   **Engineering Implementation**:
+    *   We will establish a unified **Notification Manager** in `src/utils/notifier.py` supporting two notification backends configured via `.env`:
+        1. **Email Notification (SMTP)**: Sends a formatted email using Python's built-in `smtplib` (configured with a standard SMTP host/password, such as Gmail App Passwords).
+        2. **Webhook Notification (Discord/Telegram)**: Sends a message directly to your phone via a Discord webhook or Telegram bot request (highly recommended for instant, mobile-native push alerts).
+    *   **Notification Trigger**: Once a `ContentBundle` is created and staged, the orchestrator triggers:
+        `"🚀 [Dinopedia] Topic 'T-Rex' is staged and ready for your review! Reviewer Score: 7.8/10. Preview path: output/staging/dinopedia/trex/"`
 
-> [!IMPORTANT]
-> **Q3**: What minimum quality score (1-10) should auto-approve in production mode? Suggested: 7/10.
+### 2. Grounded Reviewer Agent (Q2 Resolution)
+*   **Decision**: The Reviewer Agent evaluates the content itself, but utilizes web access to check for current trends, platform policies, and scientific updates.
+*   **Engineering Implementation**:
+    *   **Google Search Grounding**: We will enable Gemini's native **Google Search Tool** in the Google GenAI SDK for the Reviewer Agent. This is a clean, API-native solution that avoids brittle web-scraping libraries.
+    *   **Grounded Prompts**: During evaluation, the Reviewer Agent executes grounding queries to check:
+        1. *Policy Compliance*: Searches current 2026 YouTube/TikTok policies on AI-generated content disclosures and copyright boundaries.
+        2. *Trend & Fact Alignment*: Searches recent discoveries related to the topic (e.g. recent fossil discoveries) to ensure the script's facts are up-to-date and highly engaging.
+
+### 3. Strict Auto-Approval Threshold (Q3 Resolution)
+*   **Decision**: The quality score must be **more than or equal to 8/10** to trigger auto-approval in production mode.
+*   **Engineering Implementation**:
+    *   If the Reviewer Agent scores a content bundle $\ge 8/10$ on the first run (or after revisions), it bypasses manual review (in production mode) and triggers the B-roll media rendering steps directly.
+    *   If the score is between `5` and `7.9`, the Reviewer Agent sends constructive feedback back to the Generator Agent. The Generator Agent has a maximum of **2 revision attempts** to improve the score to $\ge 8/10$.
+    *   If the bundle fails to reach $\ge 8/10$ after 2 revision retries, it is automatically saved to the developer staging area, and a notification is sent to the owner: *"⚠️ [Dinopedia] Topic 'Spinosaurus' failed auto-publish threshold (Score: 7.7/10). Staged for manual audit."*
+
+---
 
 ## Acceptance Criteria
 
 - [ ] Generator Agent produces complete ContentBundles with script, audio direction, visual direction, and SEO
 - [ ] Reviewer Agent evaluates across 4 dimensions and produces a structured report
+- [ ] Reviewer Agent utilizes Gemini Google Search Grounding to verify trends and policy compliance
 - [ ] Max 2 revision retries before flagging for owner
-- [ ] Dev mode: content staged for owner approval before media production
-- [ ] Production mode: auto-approved content goes directly to media production
-- [ ] All review decisions and scores are logged for auditability
+- [ ] Dev mode: content staged for owner approval, and a notification is dispatched (Email/Webhook)
+- [ ] Production mode: auto-approved content (Score $\ge 8/10$) goes directly to media production
+- [ ] All review decisions, scores, and search sources are logged for auditability
 - [ ] Pipeline gracefully handles both modes via config flag
+- [ ] Notification credentials and webhook URLs are securely loaded via `.env`
