@@ -254,23 +254,38 @@ jobs:
 | Google Trends (pytrends) | Free |
 | **Total monthly (5 channels)** | **~$1.50** |
 
-## Open Questions
+## Architectural Decisions & Refinements
 
-> [!IMPORTANT]
-> **Q1**: For the owner approval, is editing JSON files and committing sufficient? Or would you prefer a more user-friendly interface (e.g., GitHub Issues with checkboxes, or a simple web dashboard)?
+Based on review iterations, the following scheduling and review patterns are finalized:
 
-> [!IMPORTANT]
-> **Q2**: Should the Producer Agent also suggest the order/priority of approved topics? (e.g., "Cover the breaking news topic first, then the evergreen ones")
+### 1. Content Staging Dashboard UI (Q1 Resolution)
+*   **Decision**: A simple local dashboard UI will be created for daily review. Notifications containing direct review links will be sent to the owner via phone/email.
+*   **Engineering Implementation**:
+    *   **Dashboard Tech Stack**: A lightweight local web app will be served via **FastAPI** (`src/dashboard/`). It will render a premium, dark-themed responsive dashboard displaying the generated scripts, visual prompts, and metadata for each channel.
+    *   **Interactive Review Actions**: The owner can click "Approve" or "Reject" buttons for each of the 3 proposed daily topics. Approving a topic calls a local API endpoint that updates the channel's status in `plan.json`.
+    *   **Notification Integration**: Once the daily research agent completes its run, it triggers a notification via the Notification Manager (configured in Spec 03) sending a link directly to the local dashboard host.
 
-> [!IMPORTANT]
-> **Q3**: How many topics should the daily report suggest? 1-3 feels right for a daily cadence.
+### 2. Prioritized Backlog & Intelligent Bypass (Q2 Resolution)
+*   **Decision**: Multiple topics can be approved from the daily suggestions. The highest-priority topic is processed first; others are stored as a backlog. Daily research is skipped for channels with pre-approved content.
+*   **Engineering Implementation**:
+    *   **Priority Scores**: The daily agent scores proposals (1-10) based on trend alignment, worthiness, uniqueness, and engagement potential.
+    *   **Backlog Execution**: If the owner approves all 3 topics, the pipeline selects the single highest-scoring topic for the next day's video creation. The remaining 2 approved topics are added to the queue's backlog as `pending_approved`.
+    *   **Intelligent Research Bypass**: The daily research script checks the backlog first. If `plan.json` contains any `pending_approved` topics, the agent skips running new scrapes/research for that channel, preserving API credits and tokens.
+
+### 3. Suggestion Volume (Q3 Resolution)
+*   **Decision**: The Daily Producer Agent will propose exactly **3 topics** per channel run.
+
+---
 
 ## Acceptance Criteria
 
 - [ ] Daily agent runs automatically every day via GitHub Actions
-- [ ] Produces a structured report with 1-3 topic proposals per channel
-- [ ] Each proposal includes title, description, thumbnail concept, and engagement score
-- [ ] Owner can approve/reject by editing the report JSON and committing
-- [ ] Approved topics are automatically added to the channel's plan.json
+- [ ] Produces a structured daily report with exactly 3 topic proposals per channel
+- [ ] Each proposal includes title, description, thumbnail concept, and a priority score (1-10)
+- [ ] A local FastAPI Content Staging Dashboard is implemented with a responsive UI to approve/reject topics
+- [ ] Approved topics are added to `plan.json` and sorted automatically by priority score
+- [ ] The media pipeline processes only the highest-scoring approved topic per run
+- [ ] Remaining approved topics are cached in the backlog queue
+- [ ] Daily research agent bypasses query scrapes if the channel already has approved queue backlog
 - [ ] Monthly niche discovery report generated on the 1st of each month
 - [ ] Duplicate detection: never suggests topics already in the plan or channel archive
