@@ -232,34 +232,39 @@ jobs:
 | Action | File | Change |
 |--------|------|--------|
 | **MODIFY** | `src/config.py` | Add `load_channel_config()`, channel-aware API key loading |
-| **MODIFY** | `src/data/dinosaur_db.py` → **RENAME** to `topic_db.py` | Accept data_file path from config |
-| **MODIFY** | `src/data/plan.py` | Accept plan_file path from config |
-| **MODIFY** | `src/generation/content_generator.py` | Read prompt template from config |
-| **MODIFY** | `src/media/audio_generator.py` | Read voice config from channel config |
-| **MODIFY** | `src/media/slide_generator.py` | Read visual style from channel config |
 | **MODIFY** | `src/distribution/youtube_uploader.py` | Read credentials env vars from config |
 | **MODIFY** | `run_steps.py` | Add `--channel` flag, pass config through pipeline |
 | **NEW** | `channels/dinopedia/config.json` | Dinopedia channel configuration |
-| **NEW** | `channels/dinopedia/data/topics.json` | Moved from `data/dinosaurs.json` |
 | **NEW** | `channels/spacepedia/config.json` | Spacepedia channel configuration |
-| **NEW** | `channels/spacepedia/data/topics.json` | Space objects database |
 
-## Open Questions
+## Architectural Decisions & Refinements
 
-> [!IMPORTANT]
-> **Q1**: Should we rename the repo from "dinopedia" to something more generic (e.g., "content-factory", "auto-channel")? Or keep "dinopedia" as the repo name since it was the original project?
+Based on review iterations, the following multi-channel engineering patterns are finalized:
 
-> [!IMPORTANT]
-> **Q2**: Should all channels share one `GOOGLE_API_KEY` for Gemini, or should each channel have its own? Sharing is simpler but creates a single point of failure.
+### 1. Repository Re-creation & Transition (Q1 Resolution)
+*   **Decision**: A completely new repository titled `Multi Channel Content Factory` will be created. The original `dinopedia` repository will remain untouched as a historical baseline. All future development, scheduling, and multi-channel orchestration will occur in the new workspace.
 
-> [!IMPORTANT]
-> **Q3**: When adding Spacepedia as the second channel, should we create the full `topics.json` with 50+ space objects now, or start with 10-15 and expand later?
+### 2. Isolated API Key Management (Q2 Resolution)
+*   **Decision**: Every channel uses its own isolated Gemini API key.
+*   **Engineering Implementation**:
+    *   The channel config defines the environment variable name holding the key:
+        `"api_key_env_var": "SPACEPEDIA_GOOGLE_API_KEY"`
+    *   At initialization, `src/config.py` reads this variable name from the config, loads its value from the system environment/`.env`, and uses it to construct the isolated Gemini `genai.Client` for that run cycle.
+
+### 3. Dynamic Plan Queue Scheduling (Q3 Resolution)
+*   **Decision**: We will not pre-seed static topic databases (like `topics.json` files with 50+ static entries).
+*   **Engineering Implementation**:
+    *   Topic planning is fully dynamic. The **Daily Research Producer Agent** performs active scrape research, identifies trending opportunities, and appends the script/prompt configs for approved topics directly to the channel's `plan.json` queue.
+    *   The media generation engine consumes these dynamic items sequentially, eliminating static inventory databases.
+
+---
 
 ## Acceptance Criteria
 
 - [ ] Pipeline runs with `--channel=dinopedia` and produces identical output to current
-- [ ] Adding a new channel requires only: new config.json + topics.json + plan.json
+- [ ] Adding a new channel requires only: new config.json + plan.json
 - [ ] No channel-specific logic in `src/` (fully config-driven)
+- [ ] Each channel loads its specific Google API key dynamically via environment variables configured in config.json
 - [ ] GitHub Actions matrix runs channels in parallel
 - [ ] Per-channel credential management via environment variables
 - [ ] Backward compatibility: running without `--channel` defaults to `dinopedia`
