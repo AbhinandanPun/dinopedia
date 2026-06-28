@@ -162,8 +162,190 @@
       "published_date": null
     },
     {
-      "id": "iguanodon2",
+      "id": "giganotosaurus",
       "common_name": "Giganotosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "diplodocus",
+      "common_name": "Diplodocus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "baryonyx",
+      "common_name": "Baryonyx",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "pachycephalosaurus",
+      "common_name": "Pachycephalosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "therizinosaurus",
+      "common_name": "Therizinosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "protoceratops",
+      "common_name": "Protoceratops",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "hadrosaurus",
+      "common_name": "Hadrosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "corythosaurus",
+      "common_name": "Corythosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "coelophysis",
+      "common_name": "Coelophysis",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "amargasaurus",
+      "common_name": "Amargasaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "argentinosaurus",
+      "common_name": "Argentinosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "oviraptor",
+      "common_name": "Oviraptor",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "microraptor",
+      "common_name": "Microraptor",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "dreadnoughtus",
+      "common_name": "Dreadnoughtus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "quetzalcoatlus",
+      "common_name": "Quetzalcoatlus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "plesiosaurus",
+      "common_name": "Plesiosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "mosasaurus",
+      "common_name": "Mosasaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "kronosaurus",
+      "common_name": "Kronosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "dimetrodon",
+      "common_name": "Dimetrodon",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "pteranodon",
+      "common_name": "Pteranodon",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "edmontosaurus",
+      "common_name": "Edmontosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "tarbosaurus",
+      "common_name": "Tarbosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "utahraptor",
+      "common_name": "Utahraptor",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "dryosaurus",
+      "common_name": "Dryosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "kentrosaurus",
+      "common_name": "Kentrosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "psittacosaurus",
+      "common_name": "Psittacosaurus",
+      "status": "pending",
+      "scheduled_for": null,
+      "published_date": null
+    },
+    {
+      "id": "yutyrannus",
+      "common_name": "Yutyrannus",
       "status": "pending",
       "scheduled_for": null,
       "published_date": null

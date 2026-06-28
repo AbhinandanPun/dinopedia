@@ -415,7 +415,7 @@
       ]
     },
     {
-      "id": "iguanodon2",
+      "id": "giganotosaurus",
       "common_name": "Giganotosaurus",
       "scientific_name": "Giganotosaurus carolinii",
       "period": "Late Cretaceous",
@@ -430,6 +430,474 @@
         "Possibly hunted in groups",
         "Had sharp teeth and claws",
         "One of the largest carnivorous dinosaurs"
+      ]
+    },
+    {
+      "id": "diplodocus",
+      "common_name": "Diplodocus",
+      "scientific_name": "Diplodocus carnegii",
+      "period": "Late Jurassic",
+      "period_years": "154-152 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 24.0,
+      "weight_kg": 12000,
+      "key_facts": [
+        "Had an extremely long neck and a whip-like tail",
+        "Tail had about 80 caudal vertebrae, likely used for defense or noise-making",
+        "Fed on soft ferns, conifers, and mosses",
+        "Could elevate its neck to about 45 degrees",
+        "Lived in massive herds for protection against allosaurs"
+      ]
+    },
+    {
+      "id": "baryonyx",
+      "common_name": "Baryonyx",
+      "scientific_name": "Baryonyx walkeri",
+      "period": "Early Cretaceous",
+      "period_years": "130-125 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Europe",
+      "length_m": 10.0,
+      "weight_kg": 2000,
+      "key_facts": [
+        "Had a crocodile-like snout and specialized cone teeth for catching fish",
+        "Possessed a massive 30cm curved claw on each thumb",
+        "First fish-eating dinosaur discovered in England",
+        "First dinosaur found with fossilized fish scales in its stomach",
+        "Related to the giant Spinosaurus"
+      ]
+    },
+    {
+      "id": "pachycephalosaurus",
+      "common_name": "Pachycephalosaurus",
+      "scientific_name": "Pachycephalosaurus wyomingensis",
+      "period": "Late Cretaceous",
+      "period_years": "70-66 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 4.5,
+      "weight_kg": 450,
+      "key_facts": [
+        "Famous for its thick, domed skull bone up to 25 cm thick",
+        "Dome was surrounded by small bony spikes and bumps",
+        "Likely engaged in head-butting or flank-butting combat",
+        "Had tiny, ridged teeth suited for soft leaves and fruits",
+        "Coexisted with Triceratops and Tyrannosaurus rex"
+      ]
+    },
+    {
+      "id": "therizinosaurus",
+      "common_name": "Therizinosaurus",
+      "scientific_name": "Therizinosaurus cheloniformis",
+      "period": "Late Cretaceous",
+      "period_years": "70 million years ago",
+      "diet": "Herbivore",
+      "habitat": "Central Asia",
+      "length_m": 10.0,
+      "weight_kg": 5000,
+      "key_facts": [
+        "Had the longest claws of any animal in history, up to 1 meter long",
+        "Claws were used for defense and pulling down high branches",
+        "A giant herbivore belonging to the theropod (typically meat-eating) group",
+        "Possessed a small head, long neck, and a wide, bulky body",
+        "Name means 'scythe lizard' due to its giant claws"
+      ]
+    },
+    {
+      "id": "protoceratops",
+      "common_name": "Protoceratops",
+      "scientific_name": "Protoceratops andrewsi",
+      "period": "Late Cretaceous",
+      "period_years": "75-71 million years ago",
+      "diet": "Herbivore",
+      "habitat": "Central Asia",
+      "length_m": 1.8,
+      "weight_kg": 180,
+      "key_facts": [
+        "Sheep-sized early ceratopsian dinosaur without horns",
+        "Had a prominent bony frill on the back of its skull",
+        "A famous fossil preserves a Protoceratops locked in combat with a Velociraptor",
+        "Possessed a strong beak for chewing tough desert vegetation",
+        "Lived in large herds and nested in sandy desert hollows"
+      ]
+    },
+    {
+      "id": "hadrosaurus",
+      "common_name": "Hadrosaurus",
+      "scientific_name": "Hadrosaurus foulkii",
+      "period": "Late Cretaceous",
+      "period_years": "80-78 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 8.0,
+      "weight_kg": 3000,
+      "key_facts": [
+        "The official state dinosaur of New Jersey",
+        "First dinosaur skeleton to be mounted for public display",
+        "A duck-billed dinosaur with hundreds of self-sharpening teeth",
+        "Walked on both two and four legs",
+        "Helped establish that dinosaurs were active land animals"
+      ]
+    },
+    {
+      "id": "corythosaurus",
+      "common_name": "Corythosaurus",
+      "scientific_name": "Corythosaurus casuarius",
+      "period": "Late Cretaceous",
+      "period_years": "77-75 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 9.0,
+      "weight_kg": 3000,
+      "key_facts": [
+        "Had a high, circular bony crest resembling a Corinthian soldier's helmet",
+        "Crest was hollow and connected to nasal passages for vocal calls",
+        "Crest may have also been brightly colored for mating display",
+        "Duck-billed dinosaur with flat beak and chewing battery",
+        "Many well-preserved mummified skin impressions have been found"
+      ]
+    },
+    {
+      "id": "coelophysis",
+      "common_name": "Coelophysis",
+      "scientific_name": "Coelophysis bauri",
+      "period": "Late Triassic",
+      "period_years": "203-196 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 3.0,
+      "weight_kg": 20,
+      "key_facts": [
+        "One of the earliest and most successful small dinosaurs",
+        "Lightweight, hollow bones made it extremely fast and agile",
+        "Hundreds of skeletons found together at Ghost Ranch, New Mexico",
+        "Had large eyes, blade-like teeth, and three-clawed hands",
+        "Likely hunted small mammals, reptiles, and insects"
+      ]
+    },
+    {
+      "id": "amargasaurus",
+      "common_name": "Amargasaurus",
+      "scientific_name": "Amargasaurus cazaui",
+      "period": "Early Cretaceous",
+      "period_years": "129-122 million years ago",
+      "diet": "Herbivore",
+      "habitat": "South America",
+      "length_m": 10.0,
+      "weight_kg": 2600,
+      "key_facts": [
+        "Sauropod dinosaur with two parallel rows of long spines on its neck",
+        "Spines were extensions of the vertebrae, up to 60 cm tall",
+        "Spines may have supported a sail or been used for display and defense",
+        "Relatively short neck and small size for a sauropod",
+        "Fossils discovered in Neuquén Province, Argentina"
+      ]
+    },
+    {
+      "id": "argentinosaurus",
+      "common_name": "Argentinosaurus",
+      "scientific_name": "Argentinosaurus huinculensis",
+      "period": "Late Cretaceous",
+      "period_years": "97-93 million years ago",
+      "diet": "Herbivore",
+      "habitat": "South America",
+      "length_m": 35.0,
+      "weight_kg": 80000,
+      "key_facts": [
+        "Widely considered the largest and heaviest land animal ever to live",
+        "A single vertebra measured over 1.5 meters tall",
+        "Traveled in slow-moving herds to search for vast quantities of foliage",
+        "Young hatched from eggs the size of coconuts",
+        "Only incomplete skeletons have been found, leaving exact size disputed"
+      ]
+    },
+    {
+      "id": "oviraptor",
+      "common_name": "Oviraptor",
+      "scientific_name": "Oviraptor philoceratops",
+      "period": "Late Cretaceous",
+      "period_years": "75-71 million years ago",
+      "diet": "Omnivore",
+      "habitat": "Central Asia",
+      "length_m": 1.6,
+      "weight_kg": 35,
+      "key_facts": [
+        "Name means 'egg thief' due to first fossil found on top of dinosaur eggs",
+        "Later discoveries proved it was actually brooding its own nest",
+        "Possessed a short, toothless beak and a small head crest",
+        "Had feathered body, long legs, and curved hand claws",
+        "Likely ate seeds, nuts, insects, and small lizards"
+      ]
+    },
+    {
+      "id": "microraptor",
+      "common_name": "Microraptor",
+      "scientific_name": "Microraptor zhaoianus",
+      "period": "Early Cretaceous",
+      "period_years": "120 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Central Asia",
+      "length_m": 0.8,
+      "weight_kg": 1,
+      "key_facts": [
+        "A tiny dromaeosaur with feathers on both its arms and legs",
+        "Functioned as a four-winged glider, steering between forest trees",
+        "Fossil analysis shows iridescent black feathers, like a modern crow",
+        "Preyed on small birds, mammals, fish, and lizards",
+        "Key evolutionary link showing dinosaur-to-bird transition"
+      ]
+    },
+    {
+      "id": "dreadnoughtus",
+      "common_name": "Dreadnoughtus",
+      "scientific_name": "Dreadnoughtus schrani",
+      "period": "Late Cretaceous",
+      "period_years": "77 million years ago",
+      "diet": "Herbivore",
+      "habitat": "South America",
+      "length_m": 26.0,
+      "weight_kg": 49000,
+      "key_facts": [
+        "Named 'fearing nothing' due to its colossal, invulnerable adult size",
+        "One of the most complete titanosaure skeletons ever discovered",
+        "Had a massive 9-meter neck and a muscular 9-meter tail",
+        "Spent all day grazing to maintain its huge body mass",
+        "Fossils recovered from Patagonia, Argentina"
+      ]
+    },
+    {
+      "id": "quetzalcoatlus",
+      "common_name": "Quetzalcoatlus",
+      "scientific_name": "Quetzalcoatlus northropi",
+      "period": "Late Cretaceous",
+      "period_years": "68-66 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 5.0,
+      "weight_kg": 250,
+      "key_facts": [
+        "Pterosaur, not a dinosaur, but the largest flying animal of all time",
+        "Had a wingspan of 10 to 11 meters, equivalent to a small airplane",
+        "Stood as tall as a modern giraffe when walking on the ground",
+        "Used a long, toothless beak to hunt small land animals and fish",
+        "Walked on all fours using its folded wing joints"
+      ]
+    },
+    {
+      "id": "plesiosaurus",
+      "common_name": "Plesiosaurus",
+      "scientific_name": "Plesiosaurus dolichodeirus",
+      "period": "Early Jurassic",
+      "period_years": "199-175 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Europe",
+      "length_m": 3.5,
+      "weight_kg": 400,
+      "key_facts": [
+        "Marine reptile, not a dinosaur, with a long snake-like neck",
+        "Used four large, paddle-like flippers to fly through marine waters",
+        "Had needle-sharp teeth adapted for trapping slippery fish and squid",
+        "Famously served as the design inspiration for the Loch Ness Monster myth",
+        "Gave birth to live young rather than laying eggs on land"
+      ]
+    },
+    {
+      "id": "mosasaurus",
+      "common_name": "Mosasaurus",
+      "scientific_name": "Mosasaurus hoffmannii",
+      "period": "Late Cretaceous",
+      "period_years": "70-66 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Global Oceans",
+      "length_m": 17.0,
+      "weight_kg": 15000,
+      "key_facts": [
+        "Apex marine reptile predator, not a dinosaur, of the late oceans",
+        "Had a heavy skull, double-hinged jaw, and rows of conical crushing teeth",
+        "Propelled through water using a powerful, shark-like tail fin",
+        "Preyed on ammonites, fish, turtles, and even smaller mosasaurs",
+        "First specimen discovered in a limestone quarry in Maastricht, Netherlands"
+      ]
+    },
+    {
+      "id": "kronosaurus",
+      "common_name": "Kronosaurus",
+      "scientific_name": "Kronosaurus queenslandicus",
+      "period": "Early Cretaceous",
+      "period_years": "120-110 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Australia and South America",
+      "length_m": 10.0,
+      "weight_kg": 11000,
+      "key_facts": [
+        "Giant pliosaur marine reptile with a massive 2.5-meter long skull",
+        "Had teeth as large as bananas, exceeding the size of T-Rex teeth",
+        "Used short neck and powerful flippers for ambush underwater attacks",
+        "Named after the Greek Titan Cronus who ate his own children",
+        "Top ocean predator of the Early Cretaceous seas"
+      ]
+    },
+    {
+      "id": "dimetrodon",
+      "common_name": "Dimetrodon",
+      "scientific_name": "Dimetrodon grandis",
+      "period": "Early Permian",
+      "period_years": "295-272 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America and Europe",
+      "length_m": 3.5,
+      "weight_kg": 250,
+      "key_facts": [
+        "A synapsid reptile, more closely related to mammals than dinosaurs",
+        "Lived millions of years before the first dinosaur evolved",
+        "Famous for the massive neural spine sail on its back",
+        "Sail was likely used for thermoregulation and mating display",
+        "Had two distinct types of teeth for shearing flesh and bone"
+      ]
+    },
+    {
+      "id": "pteranodon",
+      "common_name": "Pteranodon",
+      "scientific_name": "Pteranodon longiceps",
+      "period": "Late Cretaceous",
+      "period_years": "86-84 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 2.4,
+      "weight_kg": 35,
+      "key_facts": [
+        "Pterosaur with a large bony head crest extending backwards",
+        "Had a wingspan of up to 6 meters, but very lightweight skeleton",
+        "Toothless beak used to scoop up fish from ocean surface",
+        "Crest may have served as a rudder or visual sexual display",
+        "Fossils frequently found in marine deposits far from coastlines"
+      ]
+    },
+    {
+      "id": "edmontosaurus",
+      "common_name": "Edmontosaurus",
+      "scientific_name": "Edmontosaurus annectens",
+      "period": "Late Cretaceous",
+      "period_years": "73-66 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America",
+      "length_m": 12.0,
+      "weight_kg": 4000,
+      "key_facts": [
+        "One of the largest duck-billed dinosaurs, competing in length with T-Rex",
+        "Had a soft, fleshy comb on its head, similar to a rooster",
+        "Possessed a massive dental battery containing over 1,000 grinding teeth",
+        "Could move on two legs or crawl slowly on four",
+        "Coexisted with Triceratops and was a primary prey of T-Rex"
+      ]
+    },
+    {
+      "id": "tarbosaurus",
+      "common_name": "Tarbosaurus",
+      "scientific_name": "Tarbosaurus bataar",
+      "period": "Late Cretaceous",
+      "period_years": "70 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Central Asia",
+      "length_m": 10.0,
+      "weight_kg": 4500,
+      "key_facts": [
+        "The Asian cousin of Tyrannosaurus rex, slightly smaller but equally deadly",
+        "Had the smallest arms of any large tyrannosaurid dinosaur",
+        "Equipped with a rigid locking jaw mechanism to secure large prey",
+        "Apex predator of the Nemegt Basin in Mongolia",
+        "Lacked the binocular vision of T-Rex, relying more on smell and hearing"
+      ]
+    },
+    {
+      "id": "utahraptor",
+      "common_name": "Utahraptor",
+      "scientific_name": "Utahraptor ostrommaysi",
+      "period": "Early Cretaceous",
+      "period_years": "126 million years ago",
+      "diet": "Carnivore",
+      "habitat": "North America",
+      "length_m": 7.0,
+      "weight_kg": 500,
+      "key_facts": [
+        "The largest raptor (dromaeosaurid) to ever walk the earth",
+        "Equipped with massive, curved 22 cm sickle claws on its second toes",
+        "Weighed as much as a grizzly bear, built far more robustly than Velociraptor",
+        "Preyed on large iguanodonts and sauropods",
+        "Walked on two toes, keeping the giant sickle claw raised off the ground"
+      ]
+    },
+    {
+      "id": "dryosaurus",
+      "common_name": "Dryosaurus",
+      "scientific_name": "Dryosaurus altus",
+      "period": "Late Jurassic",
+      "period_years": "155-150 million years ago",
+      "diet": "Herbivore",
+      "habitat": "North America and Europe",
+      "length_m": 3.0,
+      "weight_kg": 80,
+      "key_facts": [
+        "Small, fast, bipedal dinosaur built for speed",
+        "Had large eyes, indicating excellent vision for spotting predators",
+        "Had a horny beak and cheek pouches to store food during chewing",
+        "Lacked armor, relying entirely on running speed for defense",
+        "Fossils found in the Morrison Formation"
+      ]
+    },
+    {
+      "id": "kentrosaurus",
+      "common_name": "Kentrosaurus",
+      "scientific_name": "Kentrosaurus aethiopicus",
+      "period": "Late Jurassic",
+      "period_years": "152 million years ago",
+      "diet": "Herbivore",
+      "habitat": "East Africa",
+      "length_m": 4.5,
+      "weight_kg": 700,
+      "key_facts": [
+        "Spiked relative of Stegosaurus discovered in Tendaguru, Tanzania",
+        "Had small plates on neck, shifting to long spines along back and tail",
+        "Possessed two extremely long spikes projecting outwards from its shoulders",
+        "Low-slung body adapted for grazing on ground ferns and low foliage",
+        "Could swing its spike-armored tail in a wide arc for self-defense"
+      ]
+    },
+    {
+      "id": "psittacosaurus",
+      "common_name": "Psittacosaurus",
+      "scientific_name": "Psittacosaurus mongoliensis",
+      "period": "Early Cretaceous",
+      "period_years": "126-101 million years ago",
+      "diet": "Herbivore",
+      "habitat": "Central Asia",
+      "length_m": 2.0,
+      "weight_kg": 20,
+      "key_facts": [
+        "Name means 'parrot lizard' due to its short, curved beak skull shape",
+        "An early ancestor of the horned ceratopsian dinosaurs",
+        "Some fossils preserve bristles resembling stiff quill hairs on its tail",
+        "Gastroliths (gizzard stones) have been found in rib cages, used to grind seeds",
+        "One of the most species-rich dinosaur genera, with over 10 named species"
+      ]
+    },
+    {
+      "id": "yutyrannus",
+      "common_name": "Yutyrannus",
+      "scientific_name": "Yutyrannus huali",
+      "period": "Early Cretaceous",
+      "period_years": "125 million years ago",
+      "diet": "Carnivore",
+      "habitat": "Central Asia",
+      "length_m": 9.0,
+      "weight_kg": 1400,
+      "key_facts": [
+        "The largest known dinosaur with direct fossil evidence of feathers",
+        "Name translates to 'beautiful feathered tyrant'",
+        "Possessed long, shaggy proto-feathers used for insulation in cool climates",
+        "An early relative of Tyrannosaurus rex",
+        "Hunted in the colder forested regions of Liaoning, China"
       ]
     }
   ]
