@@ -108,9 +108,9 @@
     {
       "id": "ceratosaurus",
       "common_name": "Ceratosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-06-29T04:50:18.443104"
     },
     {
       "id": "dilophosaurus",
