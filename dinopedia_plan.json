@@ -136,9 +136,9 @@
     {
       "id": "eoraptor",
       "common_name": "Eoraptor",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-01T14:54:56.283918"
     },
     {
       "id": "sauropelta",
