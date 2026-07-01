@@ -129,9 +129,9 @@
     {
       "id": "hypsilophodon",
       "common_name": "Hypsilophodon",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-01T04:44:58.443602"
     },
     {
       "id": "eoraptor",
