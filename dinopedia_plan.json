@@ -143,9 +143,9 @@
     {
       "id": "sauropelta",
       "common_name": "Sauropelta",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-02T04:12:16.756564"
     },
     {
       "id": "moschops",
