@@ -164,9 +164,9 @@
     {
       "id": "giganotosaurus",
       "common_name": "Giganotosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-03T14:29:08.157563"
     },
     {
       "id": "diplodocus",
