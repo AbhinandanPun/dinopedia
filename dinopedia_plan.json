@@ -157,9 +157,9 @@
     {
       "id": "maiasaura",
       "common_name": "Maiasaura",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-03T03:58:21.778453"
     },
     {
       "id": "giganotosaurus",
