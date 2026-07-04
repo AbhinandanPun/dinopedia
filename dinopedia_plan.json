@@ -178,9 +178,9 @@
     {
       "id": "baryonyx",
       "common_name": "Baryonyx",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-04T13:54:35.801963"
     },
     {
       "id": "pachycephalosaurus",
