@@ -192,9 +192,9 @@
     {
       "id": "therizinosaurus",
       "common_name": "Therizinosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-05T13:58:56.070302"
     },
     {
       "id": "protoceratops",
