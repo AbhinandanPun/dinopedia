@@ -185,9 +185,9 @@
     {
       "id": "pachycephalosaurus",
       "common_name": "Pachycephalosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-05T04:10:29.267005"
     },
     {
       "id": "therizinosaurus",
