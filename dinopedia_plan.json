@@ -199,9 +199,9 @@
     {
       "id": "protoceratops",
       "common_name": "Protoceratops",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-06T04:16:40.183859"
     },
     {
       "id": "hadrosaurus",
