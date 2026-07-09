@@ -234,9 +234,9 @@
     {
       "id": "argentinosaurus",
       "common_name": "Argentinosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-09T15:31:18.090604"
     },
     {
       "id": "oviraptor",
