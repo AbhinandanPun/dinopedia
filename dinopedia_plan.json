@@ -227,9 +227,9 @@
     {
       "id": "amargasaurus",
       "common_name": "Amargasaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-09T04:11:03.666200"
     },
     {
       "id": "argentinosaurus",
