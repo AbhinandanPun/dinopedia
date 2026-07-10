@@ -241,9 +241,9 @@
     {
       "id": "oviraptor",
       "common_name": "Oviraptor",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-10T04:01:54.708339"
     },
     {
       "id": "microraptor",
