@@ -255,9 +255,9 @@
     {
       "id": "dreadnoughtus",
       "common_name": "Dreadnoughtus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-11T13:46:35.257183"
     },
     {
       "id": "quetzalcoatlus",
