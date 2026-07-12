@@ -269,9 +269,9 @@
     {
       "id": "plesiosaurus",
       "common_name": "Plesiosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-12T13:46:43.149158"
     },
     {
       "id": "mosasaurus",
