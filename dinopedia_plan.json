@@ -262,9 +262,9 @@
     {
       "id": "quetzalcoatlus",
       "common_name": "Quetzalcoatlus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-12T03:39:12.194854"
     },
     {
       "id": "plesiosaurus",
