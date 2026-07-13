@@ -276,9 +276,9 @@
     {
       "id": "mosasaurus",
       "common_name": "Mosasaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-13T03:42:19.778021"
     },
     {
       "id": "kronosaurus",
