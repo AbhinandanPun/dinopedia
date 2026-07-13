@@ -283,9 +283,9 @@
     {
       "id": "kronosaurus",
       "common_name": "Kronosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-13T14:54:49.998108"
     },
     {
       "id": "dimetrodon",
