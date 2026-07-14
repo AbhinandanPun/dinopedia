@@ -297,9 +297,9 @@
     {
       "id": "pteranodon",
       "common_name": "Pteranodon",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-14T14:04:56.084799"
     },
     {
       "id": "edmontosaurus",
