@@ -290,9 +290,9 @@
     {
       "id": "dimetrodon",
       "common_name": "Dimetrodon",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-14T03:17:32.573770"
     },
     {
       "id": "pteranodon",
