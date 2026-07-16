@@ -304,9 +304,9 @@
     {
       "id": "edmontosaurus",
       "common_name": "Edmontosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-16T03:24:28.538039"
     },
     {
       "id": "tarbosaurus",
