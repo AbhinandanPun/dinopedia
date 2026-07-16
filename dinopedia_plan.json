@@ -311,9 +311,9 @@
     {
       "id": "tarbosaurus",
       "common_name": "Tarbosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-16T14:13:18.977469"
     },
     {
       "id": "utahraptor",
