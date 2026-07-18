@@ -332,9 +332,9 @@
     {
       "id": "kentrosaurus",
       "common_name": "Kentrosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-18T13:41:30.273447"
     },
     {
       "id": "psittacosaurus",
