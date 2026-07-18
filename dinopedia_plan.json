@@ -325,9 +325,9 @@
     {
       "id": "dryosaurus",
       "common_name": "Dryosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-18T03:16:52.305649"
     },
     {
       "id": "kentrosaurus",
