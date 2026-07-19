@@ -339,9 +339,9 @@
     {
       "id": "psittacosaurus",
       "common_name": "Psittacosaurus",
-      "status": "pending",
+      "status": "complete",
       "scheduled_for": null,
-      "published_date": null
+      "published_date": "2026-07-19T03:37:28.024299"
     },
     {
       "id": "yutyrannus",
